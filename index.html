@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasturchi Brat Intro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+
+    <!-- DARK/LIGHT TOGGLE -->
+    <div class="toggle" id="toggleBtn">☾</div>
+
+    <!-- INTRO SCREEN -->
+    <div class="intro" id="intro">
+        <h1 class="intro-text">Dasturchi Brat</h1>
+        <div class="left-close"></div>
+        <div class="right-close"></div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content" id="content">
+        <h1>Hello World</h1>
+    </div>
+
+<script>
+    const body = document.body;
+    const toggleBtn = document.getElementById("toggleBtn");
+
+    toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("light");
+        body.classList.toggle("dark");
+        toggleBtn.textContent = body.classList.contains("dark") ? "☾" : "☀";
+    });
+
+    // INTRO SEQUENCE
+    window.onload = () => {
+        // 2 sekund turadi
+        setTimeout(() => {
+            document.querySelector(".intro-text").classList.add("hide-text");
+            document.querySelector(".left-close").classList.add("close-left");
+            document.querySelector(".right-close").classList.add("close-right");
+        }, 2000);
+
+        // 3.2 sekundda intro opacity 0
+        setTimeout(() => {
+            document.getElementById("intro").style.opacity = "0";
+        }, 3200);
+
+        // 3.8 sekundda intro yo‘q bo‘ladi va Hello World paydo bo‘ladi
+        setTimeout(() => {
+            document.getElementById("intro").style.display = "none";
+            document.getElementById("content").classList.add("show");
+        }, 3800);
+    };
+</script>
+
+</body>
+</html>
